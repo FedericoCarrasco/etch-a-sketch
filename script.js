@@ -1,4 +1,20 @@
 let grid = document.querySelector('#grid');
+let button1 = document.querySelector('#button1');
+let button2 = document.querySelector('#button2');
+
+button1.onclick = askUser;
+button2.onclick = askUser;
+
+function askUser() {
+    let size = prompt("Choose pencil size, between 1 and 100");
+    if (1 > size || size > 100 && typeof(size) !== "number") {
+        askUser();
+    }
+    else {
+        size = 101 - size;
+        updateGrid (grid, size);
+    }
+}
 
 function updateGrid (grid, size) {
 
